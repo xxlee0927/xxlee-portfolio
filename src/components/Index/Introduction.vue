@@ -11,15 +11,16 @@ export default {
   mounted () {
     this.s = Snap('#introduction svg')
     this.decomposeFace()
+    if (this.showAnimation) {
+      this.composeFace()
+    }
 
-    // document.querySelector('#introduction svg .face').addEventListener('mouseenter', e => {
-    //   console.log('mouseenter')
-    //   this.decomposeFace({transparent: false})
-    // })
-    // document.querySelector('#introduction svg .face').addEventListener('mouseout', e => {
-    //   console.log('mouseout')
-    //   this.composeFace({delay: false})
-    // })
+    document.querySelector('#introduction svg').addEventListener('mouseenter', e => {
+      this.decomposeFace({ transparent: false })
+    })
+    document.querySelector('#introduction svg').addEventListener('mouseleave', e => {
+      this.composeFace({ delay: false })
+    })
   },
   watch: {
     showAnimation (val) {
@@ -57,13 +58,15 @@ export default {
     <div class="container full-height">
       <el-row type="flex" align="middle" class="full-height">
         <el-col :span="10" :offset="2">
-          <h1 class="h1">
-            嗨！我是李慶宏
-          </h1>
-          <h3 class="h3">
-            一位前端工程師<br/>
-            喜歡唱歌、攝影、探索 UIUX
-          </h3>
+          <div>
+            <h1 class="h1">
+              嗨！我是李慶宏
+            </h1>
+            <h3 class="h3">
+              一位前端工程師<br/>
+              喜歡唱歌、攝影、探索 UIUX
+            </h3>
+          </div>
         </el-col>
         <el-col :span="10">
           <div v-html="require('@/assets/low-poly-face.svg')">
@@ -78,7 +81,7 @@ export default {
 <style lang="scss" scoped>
   #introduction{
     position: relative;
-    height: 101vh;
+    height: 100vh;
     background-color: #eee;
   }
 </style>

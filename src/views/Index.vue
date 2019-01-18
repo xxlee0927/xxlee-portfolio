@@ -1,26 +1,36 @@
 <script>
 import Banner from '@/components/Index/Banner'
 import Introduction from '@/components/Index/Introduction'
+import Projects from '@/components/Index/Projects'
 
 export default {
   components: {
     Banner,
-    Introduction
+    Introduction,
+    Projects
   },
   data: () => ({
     showIntroductionAnimation: false
   }),
   mounted () {
-    window.addEventListener('wheel', e => {
-      if (window.scrollY === 0) {
-        if (e.deltaY < 0) {
-          document.getElementById('banner').classList.remove('hide')
-          this.showIntroductionAnimation = false
-        } else if (e.deltaY > 0) {
+    if (window.scrollY > 0) {
+      document.getElementById('banner').classList.add('hide')
+      this.showIntroductionAnimation = true
+    }
+
+    let oldPosition = window.scrollY
+    window.addEventListener('scroll', e => {
+      if (oldPosition === 0 || window.scrollY === 0) {
+        const deltaY = window.scrollY - oldPosition
+        if (deltaY > 0) {
           document.getElementById('banner').classList.add('hide')
           this.showIntroductionAnimation = true
+        } else if (deltaY < 0) {
+          document.getElementById('banner').classList.remove('hide')
+          this.showIntroductionAnimation = false
         }
       }
+      oldPosition = window.scrollY
     })
   }
 }
@@ -31,5 +41,7 @@ export default {
     <Banner/>
 
     <Introduction :show-animation="showIntroductionAnimation"/>
+
+    <Projects/>
   </div>
 </template>
