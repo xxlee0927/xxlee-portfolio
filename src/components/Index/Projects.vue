@@ -60,6 +60,6 @@ export default {
 <style>
   #projects{
     background-color: #eee;
-    min-height: 200vh;
+    padding: 200px 0;
   }
 </style>

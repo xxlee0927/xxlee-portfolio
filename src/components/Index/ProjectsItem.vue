@@ -6,7 +6,7 @@ export default {
   mounted () {
     const target = this.$refs.projectItem
     window.addEventListener('scroll', e => {
-      if (target.getBoundingClientRect().top < 200) {
+      if (target.getBoundingClientRect().top < 300) {
         target.classList.add('loaded')
       }
     })
@@ -58,7 +58,7 @@ export default {
       top: 0;
       width: 100%;
       padding-bottom: 66%;
-      background-color: #1de9b6;
+      background-color: $primary-color;
 
       transform: translateX(-101%);
     }

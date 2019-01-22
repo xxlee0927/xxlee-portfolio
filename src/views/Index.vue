@@ -2,12 +2,14 @@
 import Banner from '@/components/Index/Banner'
 import Introduction from '@/components/Index/Introduction'
 import Projects from '@/components/Index/Projects'
+import Contact from '@/components/Index/Contact'
 
 export default {
   components: {
     Banner,
     Introduction,
-    Projects
+    Projects,
+    Contact
   },
   data: () => ({
     showIntroductionAnimation: false
@@ -40,8 +42,16 @@ export default {
   <div id="index">
     <Banner/>
 
-    <Introduction :show-animation="showIntroductionAnimation"/>
+    <Introduction :show-animation="showIntroductionAnimation" class="margin-bottom"/>
 
-    <Projects/>
+    <Projects class="margin-bottom"/>
+
+    <Contact/>
   </div>
 </template>
+
+<style>
+#index{
+  background: #eee;
+}
+</style>

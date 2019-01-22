@@ -60,11 +60,11 @@ export default {
         <el-col :span="10" :offset="2">
           <div>
             <h1 class="h1">
-              嗨！我是李慶宏
+              Hi! I'm Ching-Hung Lee.
             </h1>
             <h3 class="h3">
-              一位前端工程師<br/>
-              喜歡唱歌、攝影、探索 UIUX
+              Front-end Developer.<br/>
+              Passionate about singing, photography, and design.
             </h3>
           </div>
         </el-col>
