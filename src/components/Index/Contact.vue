@@ -32,7 +32,7 @@ export default {
     <div class="social-block text-center">
       <span>
         <div v-for="item of platforms" :key="item.name" class="platform-button">
-          <a :href="item.link">
+          <a :href="item.link" target="_blank">
             <img :src="item.icon" :alt="item.name" class="full-width">
           </a>
         </div>

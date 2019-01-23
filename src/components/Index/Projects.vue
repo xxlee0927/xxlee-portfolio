@@ -7,17 +7,17 @@ export default {
       {
         name: 'SMIS',
         img: require('@/assets/images/Index/smis.jpg'),
-        link: '',
+        link: 'https://www.behance.net/gallery/75091735/_',
       },
       {
         name: 'NTU Challenge',
         img: require('@/assets/images/Index/ntuchallenge.jpg'),
-        link: '',
+        link: 'https://www.behance.net/gallery/75093011/NTU-Challenge',
       },
       {
         name: 'College Analysis',
         img: require('@/assets/images/Index/ntu.jpg'),
-        link: '',
+        link: 'https://www.behance.net/gallery/75091105/SMIS-',
       },
     ]
   }),
@@ -30,36 +30,31 @@ export default {
 <template>
   <div id="projects">
     <div class="container">
-      <el-row>
-        <!-- <el-col
-          v-for="(proj, index) of projects"
-          :key="proj.name"
-          :span="8"
-          :offset="index%2===0 ? 3 : 2"
-        >
-          <ProjectsItem
-            :data="proj"
-            :position="index%2===0 ? 'left' : 'right'"
-          />
-        </el-col> -->
 
-        <el-col :span="7" :offset="2">
-          <ProjectsItem :data="projects[0]" style="margin-bottom: 20%"/>
+      <el-row>
+        <el-col :xs="24" :xl="{span: 23, offset: 1}">
+          <h1 class="h1 margin-bottom">Recent Projects</h1>
         </el-col>
-        <el-col :span="7" :offset="5">
-          <ProjectsItem :data="projects[1]" style="margin-top: 20%"/>
+        <el-col :xs="24" :sm="{span: 10, offset: 12}" :xl="{span: 7, offset: 14}">
+          <ProjectsItem :data="projects[0]" class="project-1"/>
         </el-col>
-        <el-col :span="7" :offset="4">
-          <ProjectsItem :data="projects[2]" style="margin-top: 5%" />
+        <el-col :xs="24" :sm="{span: 10, offset: 1}" :xl="{span: 7, offset: 3}">
+          <ProjectsItem :data="projects[1]" class="project-2"/>
+        </el-col>
+        <el-col :xs="24" :sm="{span: 10, offset: 12}" :xl="{span: 7, offset: 14}">
+          <ProjectsItem :data="projects[2]" class="project-3"/>
         </el-col>
       </el-row>
     </div>
   </div>
 </template>
 
-<style>
+<style lang="scss" scoped>
   #projects{
     background-color: #eee;
     padding: 200px 0;
+    @media (max-width: $xs){
+      padding: 0;
+    }
   }
 </style>

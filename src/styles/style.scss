@@ -1,9 +1,15 @@
+@import "mixins";
+
+@font-face{
+  font-family: Jaapokki;
+  src: url("../assets/font/jaapokki-regular.ttf");
+}
+
 body, html{
   font-family: "Helvetica Neue", Helvetica, "PingFang TC", "Noto Sans CJK TC", 微軟正黑體, "Microsoft JhengHei", sans-serif;
 }
 
 .container{
-  width: 100%;
   padding-left: 15px;
   padding-right: 15px;
   margin-left: auto;
@@ -31,7 +37,7 @@ body, html{
 }
 
 .margin-bottom{
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 .margin-none{
   margin: 0;
@@ -46,16 +52,18 @@ body, html{
 }
 
 .h1{
-  font-size: 48px;
+  @include responsive-font(48px);
   font-weight: bold;
+  font-family: Jaapokki;
 }
 .h2{
-  font-size: 40px;
+  @include responsive-font(40px);
 }
 .h3{
-  font-size: 32px;
+  @include responsive-font(32px);
   font-weight: normal;
 }
 .h4{
+  @include responsive-font(24px);
   font-size: 30px;
 }

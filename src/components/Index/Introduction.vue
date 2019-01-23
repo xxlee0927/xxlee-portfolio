@@ -56,8 +56,8 @@ export default {
 <template>
   <div id="introduction">
     <div class="container full-height">
-      <el-row type="flex" align="middle" class="full-height">
-        <el-col :span="10" :offset="2">
+      <el-row type="flex" align="middle" class="full-height" style="flex-wrap: wrap;">
+        <el-col :xs="24" :sm="12" :xl="{span: 11, offset: 1}" style="flex-shrink: 0;">
           <div>
             <h1 class="h1">
               Hi! I'm Ching-Hung Lee.
@@ -68,7 +68,7 @@ export default {
             </h3>
           </div>
         </el-col>
-        <el-col :span="10">
+        <el-col :xs="24" :sm="12" :xl="{span: 11, offset: 0}" style="flex-shrink: 0;">
           <div v-html="require('@/assets/low-poly-face.svg')">
             <!-- svg render here -->
           </div>

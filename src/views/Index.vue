@@ -42,9 +42,9 @@ export default {
   <div id="index">
     <Banner/>
 
-    <Introduction :show-animation="showIntroductionAnimation" class="margin-bottom"/>
+    <Introduction :show-animation="showIntroductionAnimation"/>
 
-    <Projects class="margin-bottom"/>
+    <Projects/>
 
     <Contact/>
   </div>

@@ -18,9 +18,11 @@ export default {
 
 <template>
   <div class="projects__item" ref="projectItem">
-    <h3 class="projects__item__name">{{ data.name }}</h3>
-    <img class="projects__item__image" :src="data.img" :alt="data.name" />
-    <div class="projects__item__background" />
+    <a :href="data.link" target="_blank">
+      <h3 class="projects__item__name">{{ data.name }}</h3>
+      <img class="projects__item__image" :src="data.img" :alt="data.name" />
+      <div class="projects__item__background" />
+    </a>
   </div>
 </template>
 
@@ -28,6 +30,7 @@ export default {
   .projects__item{
     position: relative;
     overflow: hidden;
+    margin-bottom: 20%;
 
     &__name{
       z-index: 3;
@@ -37,7 +40,11 @@ export default {
       margin: 0;
       color: #fff;
       font-size: 60px;
+      font-family: Jaapokki;
       text-align: right;
+      @media (min-width: $xs) and (max-width: $md){
+        font-size: 48px;
+      }
 
       transform: translateY(100%);
       opacity: 0;

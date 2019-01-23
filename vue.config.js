@@ -32,7 +32,10 @@ module.exports = {
         .use('sass-resources-loader')
         .loader('sass-resources-loader')
         .options({
-          resources: path.resolve(__dirname, 'src/styles/_variables.scss'),
+          resources: [
+            path.resolve(__dirname, 'src/styles/_variables.scss'),
+            path.resolve(__dirname, 'src/styles/_mixins.scss'),
+          ]
         })
         .end()
     })
