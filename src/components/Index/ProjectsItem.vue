@@ -5,8 +5,9 @@ export default {
   },
   mounted () {
     const target = this.$refs.projectItem
+    const deviceHeight = window.innerHeight
     window.addEventListener('scroll', e => {
-      if (target.getBoundingClientRect().top < 300) {
+      if (target.getBoundingClientRect().top < deviceHeight * 0.5) {
         target.classList.add('loaded')
       }
     })
@@ -31,9 +32,13 @@ export default {
     position: relative;
     overflow: hidden;
     margin-bottom: 20%;
+    @media (max-width: $xs){
+      margin-bottom: 10px;
+    }
 
     &__name{
       z-index: 3;
+      width: 80%;
       position: absolute;
       right: 20px;
       bottom: 20px;
@@ -42,7 +47,7 @@ export default {
       font-size: 60px;
       font-family: Jaapokki;
       text-align: right;
-      @media (min-width: $xs) and (max-width: $md){
+      @media (max-width: $md){
         font-size: 48px;
       }
 

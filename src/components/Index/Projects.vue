@@ -54,7 +54,7 @@ export default {
     background-color: #eee;
     padding: 200px 0;
     @media (max-width: $xs){
-      padding: 0;
+      padding: 50px 0;
     }
   }
 </style>

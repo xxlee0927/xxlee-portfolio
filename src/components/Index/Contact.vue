@@ -46,7 +46,7 @@ export default {
 
   .title-block{
     background: $primary-color;
-    padding: 30px 0;
+    padding: 50px 0;
   }
 
   .social-block{

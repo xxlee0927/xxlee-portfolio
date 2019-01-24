@@ -5,6 +5,28 @@ const mina = window.mina // for eslint no-undef
 export default {
   mounted () {
     this.animateLogo()
+
+    const isXs = window.innerWidth <= 768
+    const bannerDOM = this.$refs.banner
+    if (!isXs) {
+      if (window.scrollY > 0) {
+        bannerDOM.classList.add('hide')
+        this.showIntroductionAnimation = true
+      }
+
+      let oldPosition = window.scrollY
+      window.addEventListener('scroll', e => {
+        if (oldPosition === 0 || window.scrollY === 0) {
+          const deltaY = window.scrollY - oldPosition
+          if (deltaY > 0) {
+            bannerDOM.classList.add('hide')
+          } else if (deltaY < 0) {
+            bannerDOM.classList.remove('hide')
+          }
+        }
+        oldPosition = window.scrollY
+      })
+    }
   },
   methods: {
     animateLogo () {
@@ -63,7 +85,7 @@ export default {
 </script>
 
 <template>
-  <div id="banner">
+  <div id="banner" ref="banner">
     <svg viewBox="0 0 500 500" class="logo">
       <g>
         <path class="left" d="M237.91,250.01l-24.97-20.96l-76.24-63.97c-6.5,8.66-12.02,18.08-16.42,28.12l67.7,56.8l-67.7,56.81c4.4,10.03,9.92,19.46,16.42,28.12l76.24-63.97L237.91,250.01z"/>
@@ -93,6 +115,10 @@ export default {
     height: 100vh;
     background-color: #000;
     transition: 1s;
+
+    @media (max-width: $xs){
+      position: relative;
+    }
 
     &.hide{
       transform: translateY(-100%);

@@ -2,19 +2,33 @@
 import Snap from 'snapsvg'
 
 export default {
-  props: {
-    showAnimation: Boolean
-  },
   data: () => ({
-    s: null
+    s: null,
+    isFaceComposed: false
   }),
   mounted () {
     this.s = Snap('#introduction svg')
     this.decomposeFace()
-    if (this.showAnimation) {
-      this.composeFace()
+
+    if (window.scrollY > 0) {
+      this.isFaceComposed = true
     }
 
+    // scroll event
+    let oldPosition = window.scrollY
+    window.addEventListener('scroll', e => {
+      if (oldPosition === 0 || window.scrollY === 0) {
+        const deltaY = window.scrollY - oldPosition
+        if (deltaY > 0) {
+          this.isFaceComposed = true
+        } else if (deltaY < 0) {
+          this.isFaceComposed = false
+        }
+      }
+      oldPosition = window.scrollY
+    })
+
+    // mouse enter and leave event
     document.querySelector('#introduction svg').addEventListener('mouseenter', e => {
       this.decomposeFace({ transparent: false })
     })
@@ -23,7 +37,7 @@ export default {
     })
   },
   watch: {
-    showAnimation (val) {
+    isFaceComposed (val) {
       if (val) { this.composeFace() } else { this.decomposeFace() }
     }
   },
@@ -81,7 +95,11 @@ export default {
 <style lang="scss" scoped>
   #introduction{
     position: relative;
-    height: 100vh;
     background-color: #eee;
+    height: 100vh;
+    @media (max-width: $xs){
+      height: auto;
+      padding: 50px 0;
+    }
   }
 </style>
