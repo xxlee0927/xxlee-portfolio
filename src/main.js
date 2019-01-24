@@ -8,6 +8,11 @@ import './styles/style.scss'
 
 Vue.config.productionTip = false
 
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title ? to.meta.title : 'xxlee'
+  next()
+})
+
 new Vue({
   router,
   render: h => h(App)
