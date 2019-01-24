@@ -11,7 +11,7 @@ npm run build
 
 git checkout gh-pages
 git add -f dist
-git commit -m 'deploy'
+git commit -m 'deploy' --no-verify
 
 # if you are deploying to https://<USERNAME>.github.io
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
