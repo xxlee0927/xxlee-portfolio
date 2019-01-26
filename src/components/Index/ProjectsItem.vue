@@ -3,6 +3,11 @@ export default {
   props: {
     data: Object,
   },
+  filters: {
+    formatTags (val) {
+      return val.join(' / ')
+    }
+  },
   mounted () {
     const target = this.$refs.projectItem
     const deviceHeight = window.innerHeight
@@ -20,9 +25,12 @@ export default {
 <template>
   <div class="projects__item" ref="projectItem">
     <a :href="data.link" target="_blank">
-      <h3 class="projects__item__name">{{ data.name }}</h3>
-      <img class="projects__item__image" :src="data.img" :alt="data.name" />
-      <div class="projects__item__background" />
+      <div class="text-wrapper">
+        <p class="tags">{{ data.tags | formatTags }}</p>
+        <h3 class="name">{{ data.name }}</h3>
+      </div>
+      <img class="image" :src="data.img" :alt="data.name" />
+      <div class="background" />
     </a>
   </div>
 </template>
@@ -36,25 +44,33 @@ export default {
       margin-bottom: 10px;
     }
 
-    &__name{
+    .text-wrapper{
       z-index: 3;
       width: 80%;
       position: absolute;
       right: 20px;
       bottom: 20px;
-      margin: 0;
-      color: #fff;
-      font-size: 60px;
-      font-family: Jaapokki;
       text-align: right;
-      @media (max-width: $md){
-        font-size: 48px;
-      }
-
       transform: translateY(100%);
       opacity: 0;
+
+      .name{
+        margin: 0;
+        color: #fff;
+        font-size: 60px;
+        font-family: Jaapokki;
+        @media (max-width: $md){
+          font-size: 48px;
+        }
+
+      }
+      .tags{
+        margin-bottom: 5px;
+        font-size: 18px;
+        color: #fff;
+      }
     }
-    &__image{
+    .image{
       z-index: 2;
       position: relative;
       width: 66%;
@@ -63,7 +79,7 @@ export default {
 
       transform: translateX(-101%);
     }
-    &__background{
+    .background{
       z-index: 1;
       position: absolute;
       left: 0;
@@ -75,28 +91,30 @@ export default {
       transform: translateX(-101%);
     }
 
-    &:hover &__image{
+    &:hover .image{
       filter: grayscale(0) brightness(.9);
       transition-delay: 0;
       transition-duration: .3s;
     }
 
-    &.loaded &__name{
-      animation-name: slideup;
-      animation-delay: 1s;
-      animation-duration: .3s;
-      animation-fill-mode: forwards;
-    }
-    &.loaded &__image{
-      animation-name: slideright;
-      animation-delay: .5s;
-      animation-duration: .3s;
-      animation-fill-mode: forwards;
-    }
-    &.loaded &__background{
-      animation-name: slideright;
-      animation-duration: .3s;
-      animation-fill-mode: forwards;
+    &.loaded{
+      .text-wrapper{
+        animation-name: slideup;
+        animation-delay: 1s;
+        animation-duration: .3s;
+        animation-fill-mode: forwards;
+      }
+      .image{
+        animation-name: slideright;
+        animation-delay: .5s;
+        animation-duration: .3s;
+        animation-fill-mode: forwards;
+      }
+      .background{
+        animation-name: slideright;
+        animation-duration: .3s;
+        animation-fill-mode: forwards;
+      }
     }
 
     @keyframes slideright{

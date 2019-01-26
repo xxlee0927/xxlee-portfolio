@@ -8,16 +8,19 @@ export default {
         name: 'SMIS',
         img: require('@/assets/images/Index/smis.jpg'),
         link: 'https://www.behance.net/gallery/75091735/_',
+        tags: ['Dev', 'UI'],
       },
       {
         name: 'NTU Challenge',
         img: require('@/assets/images/Index/ntuchallenge.jpg'),
         link: 'https://www.behance.net/gallery/75093011/NTU-Challenge',
+        tags: ['Dev', 'Mobile'],
       },
       {
         name: 'College Analysis',
         img: require('@/assets/images/Index/ntu.jpg'),
         link: 'https://www.behance.net/gallery/75091105/SMIS-',
+        tags: ['Dev', 'Data Visualization'],
       },
     ]
   }),
