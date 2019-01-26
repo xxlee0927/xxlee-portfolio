@@ -1,4 +1,5 @@
 <script>
+import AnimatedBackground from '@/components/Index/AnimatedBackground'
 import Banner from '@/components/Index/Banner'
 import Introduction from '@/components/Index/Introduction'
 import Projects from '@/components/Index/Projects'
@@ -6,6 +7,7 @@ import Contact from '@/components/Index/Contact'
 
 export default {
   components: {
+    AnimatedBackground,
     Banner,
     Introduction,
     Projects,
@@ -18,16 +20,11 @@ export default {
   <div id="index">
     <Banner/>
 
-    <Introduction/>
-
-    <Projects/>
+    <AnimatedBackground>
+      <Introduction/>
+      <Projects/>
+    </AnimatedBackground>
 
     <Contact/>
   </div>
 </template>
-
-<style>
-#index{
-  background: #eee;
-}
-</style>

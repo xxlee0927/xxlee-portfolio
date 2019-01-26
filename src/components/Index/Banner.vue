@@ -110,7 +110,7 @@ export default {
 <style lang="scss" scoped>
   #banner{
     position: absolute;
-    z-index: 1;
+    z-index: 11;
     width: 100%;
     height: 100vh;
     background-color: #000;

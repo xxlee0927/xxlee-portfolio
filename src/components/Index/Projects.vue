@@ -2,6 +2,9 @@
 import ProjectsItem from './ProjectsItem'
 
 export default {
+  components: {
+    ProjectsItem
+  },
   data: () => ({
     projects: [
       {
@@ -24,14 +27,11 @@ export default {
       },
     ]
   }),
-  components: {
-    ProjectsItem
-  }
 }
 </script>
 
 <template>
-  <div id="projects">
+  <div id="projects" ref="projects">
     <div class="container">
 
       <el-row>

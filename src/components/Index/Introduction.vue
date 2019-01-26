@@ -68,7 +68,7 @@ export default {
 </script>
 
 <template>
-  <div id="introduction">
+  <div id="introduction" ref="introduction">
     <div class="container full-height">
       <el-row type="flex" align="middle" class="full-height" style="flex-wrap: wrap;">
         <el-col :xs="24" :sm="12" :xl="{span: 11, offset: 1}" style="flex-shrink: 0;">
@@ -95,7 +95,6 @@ export default {
 <style lang="scss" scoped>
   #introduction{
     position: relative;
-    background-color: #eee;
     height: 100vh;
     @media (max-width: $xs){
       height: auto;

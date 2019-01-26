@@ -45,7 +45,7 @@ export default {
     }
 
     .text-wrapper{
-      z-index: 3;
+      z-index: 13;
       width: 80%;
       position: absolute;
       right: 20px;
@@ -71,7 +71,7 @@ export default {
       }
     }
     .image{
-      z-index: 2;
+      z-index: 12;
       position: relative;
       width: 66%;
       filter: grayscale(100%) brightness(.7);
@@ -80,7 +80,7 @@ export default {
       transform: translateX(-101%);
     }
     .background{
-      z-index: 1;
+      z-index: 11;
       position: absolute;
       left: 0;
       top: 0;
