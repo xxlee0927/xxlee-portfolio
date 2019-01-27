@@ -59,7 +59,7 @@ export default {
         color: #fff;
         font-size: 60px;
         font-family: Jaapokki;
-        @media (max-width: $md){
+        @media (max-width: ($md - 1px)){
           font-size: 48px;
         }
 

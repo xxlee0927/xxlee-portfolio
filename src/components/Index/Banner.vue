@@ -6,16 +6,16 @@ export default {
   mounted () {
     this.animateLogo()
 
-    const isXs = window.innerWidth <= 768
     const bannerDOM = this.$refs.banner
-    if (!isXs) {
-      if (window.scrollY > 0) {
-        bannerDOM.classList.add('hide')
-        this.showIntroductionAnimation = true
-      }
 
-      let oldPosition = window.scrollY
-      window.addEventListener('scroll', e => {
+    if (this.$breakpoint.is('xs') && window.scrollY > 0) {
+      bannerDOM.classList.add('hide')
+      this.showIntroductionAnimation = true
+    }
+
+    let oldPosition = window.scrollY
+    window.addEventListener('scroll', e => {
+      if (!this.$breakpoint.is('xs')) {
         if (oldPosition === 0 || window.scrollY === 0) {
           const deltaY = window.scrollY - oldPosition
           if (deltaY > 0) {
@@ -25,8 +25,8 @@ export default {
           }
         }
         oldPosition = window.scrollY
-      })
-    }
+      }
+    })
   },
   methods: {
     animateLogo () {

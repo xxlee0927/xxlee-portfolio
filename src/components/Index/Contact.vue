@@ -43,6 +43,8 @@ export default {
 
 <style lang="scss" scoped>
 #contact{
+  position: relative;
+  z-index: 11;
 
   .title-block{
     background: $primary-color;
